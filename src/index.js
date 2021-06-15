@@ -2,11 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Router, Route, Switch, Redirect} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
+import { GlobalProvider } from '../src/context/globalState'
+import { createBrowserHistory } from "history";
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GlobalProvider>
+      <Router history={history}>
+        <App />
+      </Router>
+    </GlobalProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
